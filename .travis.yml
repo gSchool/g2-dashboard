@@ -10,7 +10,9 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: Lni6iUleQqWH+6KlhnVg0/bX3eKcn6nPYSNiC4IKJA5e8pLEkxOvXTOcybvE+Dpt4EhqthOpB4F+tjDw80crB/ci8KPoCbdpngme355wuPCYGlNAbywyM/G02oa6xnEVPSV345fYwCJFX2UtJaNviWxTBmB6lv19gqhNhgU4s/8=
+    secure: ISw3ke/gLOvLc8KMhxmQaWJzOqQuDWozovNl4Ko803WyVpUOkbi/N3tPABGKOcMJk6XJaCsDBYRHBQkgFhw+OHhsHIluf7+GZgVhIKz/WNlPCqdDAAcD/TtRpNM+QSCsDPh1FcvSNTAJLqtwdJX1HXnrmq2vNFtgw3BNzOfbAw4=
   app: g2-dashboard-staging
   on:
     repo: gSchool/g2-dashboard
+  run:
+    - "bundle exec rake db:migrate"
