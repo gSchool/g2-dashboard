@@ -5,10 +5,11 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
 <header>
-  <div id="header_container"><h1>Dashboard</h1></div>
+  <div id="header_container"><h1><%=image_tag("dashboard_logo.png")  %></h1></div>
 </header>
 
 <div id="content_container">
