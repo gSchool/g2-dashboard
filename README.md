@@ -2,6 +2,7 @@ g2-dashboard
 ============
 
 [![Build Status](https://travis-ci.org/gSchool/g2-dashboard.svg?branch=master)](https://travis-ci.org/gSchool/g2-dashboard)
+[![Code Climate](https://codeclimate.com/github/gSchool/g2-dashboard.png)](https://codeclimate.com/github/gSchool/g2-dashboard)
 
 # Dashboard
 
