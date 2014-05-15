@@ -16,3 +16,5 @@ deploy:
     repo: gSchool/g2-dashboard
   run:
     - "bundle exec rake db:migrate"
+notifications:
+ slack: gschool:N71UozoR2tGQUFkGtqtjh9g0
