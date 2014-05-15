@@ -5,11 +5,15 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to users_path
+    redirect_to user_path(@user)
   end
 
   def index
     @users = User.all
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private
