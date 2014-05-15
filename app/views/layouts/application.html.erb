@@ -2,13 +2,21 @@
 <html>
 <head>
   <title>G2Dashboard</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <div id="header_container"><h1>Dashboard</h1></div>
+</header>
 
-<%= yield %>
+<div id="content_container">
+  <%= yield %>
+</div>
 
+<footer>
+  <div class="full_column" id="right_align"><h5 id="copyright">&copy;This is not copyrighted at all</h5></div>
+</footer>
 </body>
 </html>
