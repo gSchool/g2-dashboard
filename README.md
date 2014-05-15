@@ -1,6 +1,8 @@
 g2-dashboard
 ============
 
+[![Build Status](https://travis-ci.org/gSchool/g2-dashboard.svg?branch=master)](https://travis-ci.org/gSchool/g2-dashboard)
+
 # Dashboard
 
 ## Background
