@@ -20,6 +20,13 @@ describe User do
         user.save
         expect(user.errors[:email]).to match_array ["can't be blank"]
       end
+
+      it "should not be valid with a currently registered email" do
+        User.create!(email: "me@me.com", password: "iluvunicorns", password_confirmation: "iluvunicorns")
+        user = User.new(email: "me@me.com")
+        user.save
+        expect(user.errors[:email]).to match_array ["has already been taken"]
+      end
     end
   end
 end
