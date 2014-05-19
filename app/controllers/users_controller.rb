@@ -1,11 +1,11 @@
-class UsersController < ApplicationController
+class UsersControllergit  < ApplicationController
   def new
     @user = User.new
-  end
+  endg
 
   def create
-    @user = User.create(user_params)
-    if @user.id
+    @user = User.new(user_params)
+    if @user.save
       redirect_to user_path(@user)
     else
       render :new
