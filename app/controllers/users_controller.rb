@@ -1,7 +1,7 @@
-class UsersControllergit  < ApplicationController
+class UsersController  < ApplicationController
   def new
     @user = User.new
-  endg
+  end
 
   def create
     @user = User.new(user_params)
