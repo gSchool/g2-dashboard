@@ -16,11 +16,11 @@
  */
 
 html {
-    min-height: 100%;
+    height: 100%;
 }
 
 body {
-    min-height: 100%;
+    height: 100%;
     width: 100%;
 }
 
@@ -41,13 +41,13 @@ nav {
 }
 
 #content_container {
+    height: 70%;
     padding: 3% 1% 0% 1%;
     text-align: center;
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
+    position: relative;
     clear: both;
     width: 100%;
 }
@@ -131,8 +131,9 @@ footer {
 }
 
 #right_align {
-   text-align: right;
+    text-align: right;
 }
+
 #copyright {
     padding-right: 1%;
 }
@@ -144,4 +145,21 @@ td:first-child {
 
 td {
     padding-top: 3px;
+}
+
+#message_wrapper {
+    width: 90%;
+    float: none;
+    border: hidden 0;
+    padding: 0em 0em .25em .25em;
+    margin: 0em 1em 1em 1em;
+}
+
+.message_error {
+    text-indent: 1em;
+    line-height: 25pt;
+    border: thin solid #eed3d7;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #f2dede;
+    color: #b94a48;
 }
