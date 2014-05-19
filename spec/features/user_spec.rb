@@ -29,4 +29,11 @@ feature 'User functions' do
     expect(page).to have_content("Password confirmation doesn't match Password")
   end
 
+  it 'a newly registered user is automatically logged in' do
+    fill_in 'Password Confirmation', with: @password
+    click_on 'Submit'
+
+    expect(page).to have_content("Hello, #{@first_name} #{@last_name}")
+    expect(page).to have_no_link("Sign Up")
+  end
 end
