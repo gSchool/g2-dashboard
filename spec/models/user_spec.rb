@@ -3,6 +3,12 @@ require 'spec_helper'
 describe User do
   describe "Validations" do
     describe "on a new user" do
+      it "should not be valid with a blank password" do
+        user = User.new(password: '')
+        user.save
+        expect(user.errors[:password]).to match_array ["can't be blank"]
+      end
+
       it "should not be valid with a confirmation mismatch" do
         user = User.new(password: 'alpha', password_confirmation: 'beta')
         user.save
