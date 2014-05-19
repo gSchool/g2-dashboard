@@ -26,4 +26,13 @@ feature 'User functions' do
     expect(page).to have_content("Hello, #{@first_name} #{@last_name}")
     expect(page).to have_no_link("Sign Up")
   end
+
+  it 'a user can logout' do
+    fill_in 'Password Confirmation', with: @password
+    click_on 'Submit'
+
+    click_on 'Sign Out'
+    expect(page).to have_no_content("Hello, #{@first_name} #{@last_name}")
+    expect(page).to have_link("Sign Up")
+  end
 end

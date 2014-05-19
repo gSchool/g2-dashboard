@@ -2,6 +2,7 @@
 
 <% if @user %>
   Hello, <%= @user.full_name %>
+  <%= link_to 'Sign Out', logout_path, action: :delete %>
 <% else %>
   <%= link_to 'Sign Up', new_user_path %>
 <% end %>
