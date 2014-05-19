@@ -1,0 +1,7 @@
+<a href="/projects/new">Add New Project</a>
+<hr>
+<ul>
+<% @projects.each do |project| %>
+  <li><%= project.project_name %></li>
+<% end %>
+</ul>
