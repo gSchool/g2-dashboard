@@ -1,0 +1,35 @@
+.one_half {
+    width: 48%;
+}
+
+.one_third {
+    width: 32%;
+}
+
+.two_third {
+    width: 65%;
+}
+
+.one_fourth {
+    width: 24%;
+}
+
+.three_fourth {
+    width: 74%;
+}
+
+.full_column {
+    width: 99%;
+}
+
+.one_half, .one_third, .two_third, .three_fourth, .one_fourth, .full_column {
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+.resetColumnSet {
+    clear: both;
+}

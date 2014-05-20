@@ -1,0 +1,22 @@
+fieldset {
+    width: 100%;
+    border-width: 0;
+}
+
+.field_style {
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
+    width: 33%;
+    float: left;
+    padding-top: .35em;
+}
+
+.text_box_style {
+    width: 33%;
+    float: left;
+    margin: 0 0 .5em .75em;
+}
+
+fieldset p {
+    clear: both;
+}
