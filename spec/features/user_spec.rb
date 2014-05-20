@@ -40,4 +40,24 @@ feature 'User functions' do
     visit '/users/new'
     expect(page).to have_content('By clicking Submit user agrees to Terms of Service')
   end
+
+  scenario 'user can sign in' do
+    user = create_user
+    visit '/'
+    click_on 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: 'yepperz'
+    click_on 'Submit'
+    expect(page).to have_content("Hello, #{user.full_name}")
+  end
+
+  scenario 'user sees error when logging in with incorrect password' do
+    user = create_user
+    visit '/'
+    click_on 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: 'nope'
+    click_on 'Submit'
+    expect(page).to have_content("Incorrect login, try again")
+  end
 end
