@@ -9,12 +9,15 @@
 <% end %>
 
 <%= form_for @project do |f| %>
-  <table>
-    <tr>
-      <td><%= f.label :project_name, 'Name of Project' %></td>
-      <td><%= f.text_field :project_name %></td>
-    </tr>
-    <td></td>
-    <td><%= f.submit 'Add Project' %></td>
-  </table>
+  <div class="full_column">
+    <fieldset>
+      <p><%= f.label :project_name, 'Name of Project', class: 'field_style' %>
+        <%= f.text_field :project_name, class: 'text_box_style' %></p>
+
+      <div style="width: 73%; float:right;">
+        <%= f.submit 'Add Project', class: 'submit_button' %>
+      </div>
+
+    </fieldset>
+  </div>
 <% end %>
