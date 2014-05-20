@@ -1,3 +1,13 @@
+<% if !@project.errors.empty? %>
+  <div id="message_wrapper">
+    <div class="message_error">|
+      <% @project.errors.full_messages.each do |error| %>
+        <%= error %>&nbsp;|
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
 <%= form_for @project do |f| %>
   <table>
     <tr>

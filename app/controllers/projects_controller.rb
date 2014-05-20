@@ -12,8 +12,11 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @project.project_name = params[:project][:project_name]
     @project.project_api = SecureRandom.uuid
-    @project.save
-    redirect_to '/projects'
+    if @project.save
+      redirect_to projects_path
+    else
+      render new_project_path
+    end
   end
 
 end
