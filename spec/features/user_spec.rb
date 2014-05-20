@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 feature 'User functions' do
-
   scenario 'allows users to sign up' do
     first_name = 'Arya'
     last_name = 'Stark'
@@ -14,7 +13,7 @@ feature 'User functions' do
     expect(page).to have_content("Password confirmation doesn't match Password")
   end
 
-  it 'a newly registered user is automatically logged in' do
+  scenario 'a newly registered user is automatically logged in' do
     first_name = 'Arya'
     last_name = 'Stark'
     register_user(:first_name => first_name, :last_name => last_name)
@@ -22,7 +21,7 @@ feature 'User functions' do
     expect(page).to have_no_link("Sign Up")
   end
 
-  it 'a user can logout' do
+  scenario 'a user can logout' do
     first_name = 'Arya'
     last_name = 'Stark'
     register_user(:first_name => first_name, :last_name => last_name)
@@ -33,14 +32,12 @@ feature 'User functions' do
 
   scenario 'user can see a link to terms of service' do
     visit '/users/new'
-
     click_on 'Terms of Service'
     expect(page).to have_content('Welcome to gSchool Dashboard, a West End Pearl corporation')
   end
 
   scenario 'user agrees to Terms of Service by creating an account' do
     visit '/users/new'
-
     expect(page).to have_content('By clicking Submit user agrees to Terms of Service')
   end
 end
