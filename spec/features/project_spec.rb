@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Project functions' do
 
   before do
-    create_user
+    register_user
   end
 
   scenario 'allows a user to create a project' do
