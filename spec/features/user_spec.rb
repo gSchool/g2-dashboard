@@ -37,4 +37,10 @@ feature 'User functions' do
     click_on 'Terms of Service'
     expect(page).to have_content('Welcome to gSchool Dashboard, a West End Pearl corporation')
   end
+
+  scenario 'user agrees to Terms of Service by creating an account' do
+    visit '/users/new'
+
+    expect(page).to have_content('By clicking Submit user agrees to Terms of Service')
+  end
 end
