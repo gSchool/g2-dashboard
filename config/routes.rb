@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :users
   resources :projects
   get '/logout' => 'sessions#destroy', :as => 'logout'
+  get '/terms' => 'terms#index', :as => 'terms'
 
 end

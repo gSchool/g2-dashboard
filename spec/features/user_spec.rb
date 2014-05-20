@@ -28,6 +28,13 @@ feature 'User functions' do
     register_user(:first_name => first_name, :last_name => last_name)
     click_on 'Sign Out'
     expect(page).to have_no_content("Hello, #{first_name} #{last_name}")
-    expect(page).to have_link("Sign Up")
+    expect(page).to have_button("Sign Up")
+  end
+
+  scenario 'user can see a link to terms of service' do
+    visit '/users/new'
+
+    click_on 'Terms of Service'
+    expect(page).to have_content('Welcome to gSchool Dashboard, a West End Pearl corporation')
   end
 end
