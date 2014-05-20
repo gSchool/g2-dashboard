@@ -1,0 +1,15 @@
+#message_wrapper {
+    width: 90%;
+    float: none;
+    border: hidden 0;
+    padding: 0em 0em .25em .25em;
+    margin: 0em 1em 1em 1em;
+}
+
+.message_error {
+    text-indent: 1em;
+    line-height: 25pt;
+    border: thin solid #eed3d7;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #f2dede;
+}

@@ -1,0 +1,20 @@
+.submit_button {
+    color: white;
+    background-color: #FF8000;
+    font-family: 'Roboto Slab', serif;
+    font-size: 100%;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    margin: .4em 1em 1em 2em;
+}
+
+.submit_button:hover {
+    border-top-color: #28597a;
+    background: #28597a;
+    color: #ccc;
+}
+
+.submit_button:active {
+    border-top-color: #1b435e;
+    background: #1b435e;
+}

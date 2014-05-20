@@ -1,3 +1,5 @@
+<h2>Create an Account</h2>
+
 <% if !@user.errors.empty? %>
   <div id="message_wrapper">
     <div class="message_error">|
@@ -9,30 +11,26 @@
 <% end %>
 
 <%= form_for @user do |f| %>
-  <table>
-    <tr>
-      <td><%= f.label :first_name, 'First Name' %></td>
-      <td><%= f.text_field :first_name %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :last_name, 'Last Name' %></td>
-      <td><%= f.text_field :last_name %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :email, 'Email' %></td>
-      <td><%= f.email_field :email %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :password, 'Password' %></td>
-      <td><%= f.password_field :password %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :password_confirmation, 'Password Confirmation' %></td>
-      <td><%= f.password_field :password_confirmation %></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><%= f.submit 'Submit' %></td>
-    </tr>
-  </table>
+  <div class="full_column">
+    <fieldset>
+      <p><%= f.label :first_name, 'First Name', class: 'field_style' %>
+        <%= f.text_field :first_name, class: 'text_box_style', autofocus: 'autofocus' %></p>
+
+      <p><%= f.label :last_name, 'Last Name', class: 'field_style' %>
+        <%= f.text_field :last_name, class: 'text_box_style' %></p>
+
+      <p><%= f.label :email, 'Email', class: 'field_style' %>
+        <%= f.email_field :email, class: 'text_box_style' %></p>
+
+      <p><%= f.label :password, 'Password', class: 'field_style' %>
+        <%= f.password_field :password, class: 'text_box_style' %></p>
+
+      <p><%= f.label :password_confirmation, 'Password Confirmation', class: 'field_style' %>
+        <%= f.password_field :password_confirmation, class: 'text_box_style' %></p>
+
+      <div style="width: 71%; float:right;">
+        <%= f.submit 'Submit', class: 'submit_button' %>
+      </div>
+    </fieldset>
+  </div>
 <% end %>
