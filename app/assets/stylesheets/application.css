@@ -47,7 +47,8 @@ nav {
 }
 
 footer {
-    position: relative;
+    position: fixed;
     clear: both;
     width: 100%;
+    background-color: #FFFFFF;
 }
