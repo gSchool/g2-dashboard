@@ -18,7 +18,7 @@ describe User do
       it "should not be valid without an email" do
         user = User.new(email: "")
         user.valid?
-        expect(user.errors[:email]).to match_array ["can't be blank"]
+        expect(user.errors[:email]).to match_array ["can't be blank", "is invalid"]
       end
 
       it "should not be valid with a currently registered email" do
@@ -26,6 +26,12 @@ describe User do
         user = User.new(email: "me@me.com")
         user.valid?
         expect(user.errors[:email]).to match_array ["has already been taken"]
+      end
+
+      it "should not allow a user to register with an invalid email address" do
+        user = User.new(email: "foo")
+        user.valid?
+        expect(user.errors[:email]).to match_array ["is invalid"]
       end
     end
   end
