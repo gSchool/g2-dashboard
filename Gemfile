@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :test do
   gem 'rspec-rails', '~> 2.14.2'
   gem 'capybara', '~> 2.2.1'
+  gem 'launchy', '~> 2.4.2'
 end
 
 gem 'bcrypt', '~> 3.1.7'
