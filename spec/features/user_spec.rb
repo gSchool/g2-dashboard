@@ -41,7 +41,7 @@ feature 'User functions' do
     visit '/'
     click_on 'Sign In'
     fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'yepperz'
+    fill_in 'password', with: 'yepperz'
     click_on 'Submit'
     expect(page).to have_content("Hello, #{user.full_name}")
   end
