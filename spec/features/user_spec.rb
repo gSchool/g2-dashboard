@@ -36,11 +36,6 @@ feature 'User functions' do
     expect(page).to have_content('Welcome to gSchool Dashboard, a West End Pearl corporation')
   end
 
-  scenario 'user agrees to Terms of Service by creating an account' do
-    visit '/users/new'
-    expect(page).to have_content('By clicking Submit user agrees to Terms of Service')
-  end
-
   scenario 'user can sign in' do
     user = create_user
     visit '/'
@@ -59,5 +54,17 @@ feature 'User functions' do
     fill_in 'Password', with: 'nope'
     click_on 'Submit'
     expect(page).to have_content("Incorrect login, try again")
+  end
+
+  scenario 'user sees error when signing up without agreeing to Terms of Service' do
+    visit '/'
+    click_on 'Sign Up'
+    fill_in 'First Name', with: 'Arya'
+    fill_in 'Last Name', with: 'Stark'
+    fill_in 'Email', with: 'awesomesauce@example.com'
+    fill_in 'Password', with: 'yepperz'
+    fill_in 'Password Confirmation', with: 'yepperz'
+    click_on 'Submit'
+    expect(page).to have_content("must be accepted")
   end
 end

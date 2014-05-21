@@ -17,6 +17,7 @@ module FeaturesMethods
     fill_in 'Email', with: attributes[:email]
     fill_in 'Password', with: attributes[:password]
     fill_in 'Password Confirmation', with: attributes[:password_confirmation]
+    check 'Terms of Service'
     click_on 'Submit'
   end
 

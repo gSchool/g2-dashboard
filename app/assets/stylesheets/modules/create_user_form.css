@@ -20,3 +20,7 @@ fieldset {
 fieldset p {
     clear: both;
 }
+
+.terms_of_service {
+    font-size: 12px;
+}
