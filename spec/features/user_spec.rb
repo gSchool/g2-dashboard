@@ -54,7 +54,7 @@ feature 'User functions' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'nope'
     click_on 'Submit'
-    expect(page).to have_content("Incorrect login, try again")
+    expect(page).to have_content("Invalid Email and Password Combination")
   end
 
   scenario 'user sees error when signing up without agreeing to Terms of Service' do
