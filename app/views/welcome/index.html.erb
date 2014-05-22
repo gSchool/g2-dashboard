@@ -4,6 +4,5 @@
   Hello, <%= @user.full_name %>
   <%= button_to 'Sign Out', logout_path, action: :delete, method: "get", class: "submit_button" %>
 <% else %>
-  <%= button_to 'Sign In', login_path, method: "get", class: "submit_button" %>
-  <%= button_to 'Sign Up', new_user_path, method: "get", class: "submit_button" %>
+  <%= link_to 'Sign In', login_path %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= link_to 'Sign Up', new_user_path %>
 <% end %>
