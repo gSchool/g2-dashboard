@@ -47,6 +47,16 @@ feature 'User functions' do
     expect(page).to have_content("Login Successful")
   end
 
+  scenario 'user sees error when logging in with non-existent email' do
+    user = create_user
+    visit '/'
+    click_on 'Sign In'
+    fill_in 'Email', with: "notauser@example.com"
+    fill_in 'Password', with: user.password
+    click_on 'Submit'
+    expect(page).to have_content("Invalid Email and Password Combination")
+  end
+  
   scenario 'user sees error when logging in with incorrect password' do
     user = create_user
     visit '/'
