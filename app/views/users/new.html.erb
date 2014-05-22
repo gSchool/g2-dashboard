@@ -1,15 +1,5 @@
 <h2>Create an Account</h2>
 
-<% if !@user.errors.empty? %>
-  <div id="message_wrapper">
-    <div class="message_error">|
-      <% @user.errors.full_messages.each do |error| %>
-        <%= error %>&nbsp;|
-      <% end %>
-    </div>
-  </div>
-<% end %>
-
 <%= form_for @user do |f| %>
   <div class="full_column">
     <fieldset>

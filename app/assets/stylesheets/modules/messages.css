@@ -1,15 +1,47 @@
-#message_wrapper {
+#validation_error_wrapper {
     width: 90%;
     float: none;
     border: hidden 0;
     padding: 0em 0em .25em .25em;
-    margin: 0em 1em 1em 1em;
+    margin: 0 auto;
 }
 
-.message_error {
+.validation_error {
     text-indent: 1em;
     line-height: 25pt;
-    border: thin solid #eed3d7;
+    border: thin solid darkred;
     border-radius: 10px 10px 10px 10px;
-    background-color: #f2dede;
+    background-color: lightcoral;
+    text-align: center;
+    color: darkred;
+    margin-top: 15px;
+}
+
+#flash_alert_wrapper {
+    width: 90%;
+    float: none;
+    border: hidden 0;
+    padding: 0em 0em .25em .25em;
+    margin: 0 auto;
+}
+.alert-success {
+    text-indent: 1em;
+    line-height: 25pt;
+    border-radius: 10px 10px 10px 10px;
+    text-align: center;
+    margin-top: 15px;
+    background-color: lightgreen;
+    border: thin solid darkgreen;
+    color: darkgreen;
+}
+
+.alert-error {
+    text-indent: 1em;
+    line-height: 25pt;
+    border-radius: 10px 10px 10px 10px;
+    text-align: center;
+    margin-top: 15px;
+    background-color: lightcoral;
+    border: thin solid darkred;
+    color: darkred; 
 }

@@ -1,10 +1,5 @@
 <h1>Login</h1>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, class: name %>
-<% end %>
-
-
 <%= form_tag login_path do %>
   <div class="full_column">
     <fieldset>
@@ -23,6 +18,4 @@
       </div>
     </fieldset>
   </div>
-
-
 <% end %>

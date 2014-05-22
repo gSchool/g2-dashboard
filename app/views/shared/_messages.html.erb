@@ -1,0 +1,20 @@
+<% if @user %>
+  <% if !@user.errors.empty? %>
+    <div id="validation_error_wrapper">
+      <div class="validation_error">|
+        <% @user.errors.full_messages.each do |error| %>
+          <%= error %>&nbsp;|
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<% if flash %>
+  <div id="flash_alert_wrapper">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+  </div>
+<% end %>
+

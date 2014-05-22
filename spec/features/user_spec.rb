@@ -44,6 +44,7 @@ feature 'User functions' do
     fill_in 'password', with: 'yepperz'
     click_on 'Submit'
     expect(page).to have_content("Hello, #{user.full_name}")
+    expect(page).to have_content("Login Successful")
   end
 
   scenario 'user sees error when logging in with incorrect password' do
