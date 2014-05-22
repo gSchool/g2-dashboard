@@ -20,9 +20,10 @@
 
       <div style="width: 82%; float:right; font-size: 12px;">
         <div class="terms_of_service"> I agree to <%= link_to 'Terms of Service', terms_path %>&nbsp;
-          <%= f.check_box :terms_of_service, id: 'Terms of Service' %>
+          <%= f.check_box :terms_of_service, id: 'terms' %>
           <%= f.submit 'Submit', class: 'submit_button', style: 'font-size: 14px;' %>
         </div>
+      </div>
     </fieldset>
   </div>
 <% end %>

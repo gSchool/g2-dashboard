@@ -24,3 +24,14 @@ fieldset p {
 .terms_of_service {
     font-size: 12px;
 }
+
+.button_wrapper {
+    width: 50%;
+    margin: 0 auto;
+    height: 16px;
+    clear: both;
+}
+
+.terms_of_service .field_with_errors {
+    display:inline
+}
