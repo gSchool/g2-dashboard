@@ -5,7 +5,11 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    if session[:user_id]
+      @project = Project.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -13,6 +17,7 @@ class ProjectsController < ApplicationController
     @project.project_name = params[:project][:project_name]
     @project.project_api = SecureRandom.uuid
     if @project.save
+      Membership.create!(user_id: session[:user_id], project_id: @project.id)
       redirect_to projects_path
     else
       render new_project_path
