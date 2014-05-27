@@ -24,16 +24,31 @@ feature 'Project functions' do
     end
   end
 
-  scenario 'Users can add members to a project' do
-    create_user
-    create_user(first_name: 'Sansa', email: 'Sansa@example.com')
-    create_project
-    click_on 'Murder Joffrey'
-    select 'Sansa', from: 'Add User'
-    click_on 'Add as member'
-    within('table') do
-      expect(page).to have_content 'Sansa'
-      expect(page).to have_content 'Sansa@example.com'
+  feature 'managing project memberships' do
+    scenario 'Users can add members to a project' do
+      create_user
+      create_user(first_name: 'Sansa', email: 'Sansa@example.com')
+      create_project
+      click_on 'Murder Joffrey'
+      select 'Sansa', from: 'Add User'
+      click_on 'Add as member'
+      within('table') do
+        expect(page).to have_content 'Sansa'
+        expect(page).to have_content 'Sansa@example.com'
+      end
+    end
+
+    scenario 'User cannot add duplicate members to a project' do
+      create_user
+      create_user(first_name: 'Sansa', email: 'Sansa@example.com')
+      create_project
+      click_on 'Murder Joffrey'
+      select 'Sansa', from: 'Add User'
+      click_on 'Add as member'
+      within('form') do
+        expect(page).to have_no_content 'Sansa'
+        expect(page).to have_content 'Arya'
+      end
     end
   end
 end
