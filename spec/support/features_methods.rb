@@ -21,7 +21,7 @@ module FeaturesMethods
     click_on 'Submit'
   end
 
-  def create_project(new_attributes = {})
+  def new_project(new_attributes = {})
     default_attributes = {
       :project_name => 'Murder Joffrey'
     }
@@ -33,17 +33,5 @@ module FeaturesMethods
     click_on 'Add New Project'
     fill_in 'Name of Project', with: attributes[:project_name]
     click_on 'Add Project'
-  end
-
-  def create_user(new_attributes = {})
-    default_attributes = {
-      :first_name => 'Arya',
-      :last_name => 'Stark',
-      :email => 'awesomesauce@example.com',
-      :password => 'yepperz',
-      :password_confirmation => 'yepperz'
-    }
-    attributes = default_attributes.merge(new_attributes)
-    User.create!(attributes)
   end
 end
