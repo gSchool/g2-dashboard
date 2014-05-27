@@ -28,7 +28,8 @@ module FeaturesMethods
 
     attributes = default_attributes.merge(new_attributes)
 
-    visit '/projects'
+    visit '/'
+    click_on 'View Projects'
     click_on 'Add New Project'
     fill_in 'Name of Project', with: attributes[:project_name]
     click_on 'Add Project'
