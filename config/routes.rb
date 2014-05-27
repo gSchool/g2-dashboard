@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/terms' => 'terms#index', :as => 'terms'
   get '/about' => 'about#index', :as => 'about'
+  get '/settings' => 'settings#index', :as => 'settings'
+
 
 end
