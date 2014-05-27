@@ -23,4 +23,17 @@ feature 'Project functions' do
       expect(page).to have_content 'Email'
     end
   end
+
+  scenario 'Users can add members to a project' do
+    create_user
+    create_user(first_name: 'Sansa', email: 'Sansa@example.com')
+    create_project
+    click_on 'Murder Joffrey'
+    select 'Sansa', from: 'Add User'
+    click_on 'Add as member'
+    within('table') do
+      expect(page).to have_content 'Sansa'
+      expect(page).to have_content 'Sansa@example.com'
+    end
+  end
 end

@@ -21,6 +21,15 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @membership = Membership.new
+    @users = User.all
+    applicable_memberships = @project.memberships
+    if applicable_memberships
+      @members = applicable_memberships.map do |membership|
+        User.find(membership.user_id)
+      end
+    else
+      @members = []
+    end
   end
-
 end

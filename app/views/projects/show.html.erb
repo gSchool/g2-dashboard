@@ -1,4 +1,3 @@
-
 <h1><%= @project.project_name %></h1>
 <table>
   <tr>
@@ -6,4 +5,16 @@
     <th>Email</th>
     <th></th>
   </tr>
+  <% @members.each do |member| %>
+    <tr>
+      <td><%= member.full_name %></td>
+      <td><%= member.email %></td>
+      <td></td>
+    </tr>
+  <% end %>
 </table>
+<%= form_for [@project, @membership] do |f| %>
+  <%= f.label :user_id, 'Add User' %>
+  <%= f.collection_select(:user_id, @users, :id, :full_name, include_blank: 'Select a user') %>
+  <%= f.submit 'Add as member' %>
+<% end %>

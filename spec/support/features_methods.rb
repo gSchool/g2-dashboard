@@ -43,7 +43,7 @@ module FeaturesMethods
       :password => 'yepperz',
       :password_confirmation => 'yepperz'
     }
-
-    User.create!(default_attributes)
+    attributes = default_attributes.merge(new_attributes)
+    User.create!(attributes)
   end
 end
