@@ -10,45 +10,45 @@
  */
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 #header_container,
 #nav_container,
-#content_container,
-#footer_container {
-    margin: auto;
-    width: 99%;
+#content_container {
+  margin: auto;
+  width: 99%;
 }
 
 p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 header {
-    border-bottom: black solid;
+  border-bottom: black solid;
 }
 
 nav {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 #content_container {
-    height: 70%;
-    padding: 3% 1% 0% 1%;
-    text-align: center;
+  height: 70%;
+  padding-top: 3%;
+  text-align: center;
 }
 
 footer {
-    position: fixed;
-    clear: both;
-    width: 100%;
-    background-color: #FFFFFF;
+  position: fixed;
+  clear: both;
+  width: 100%;
+  background-color: #FFFFFF;
+  margin: auto;
 }
