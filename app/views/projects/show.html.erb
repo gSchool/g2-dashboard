@@ -1,5 +1,5 @@
 <h1><%= @project.project_name %></h1>
-<table>
+<table class="membership-table">
   <tr>
     <th>Name</th>
     <th>Email</th>
@@ -13,8 +13,11 @@
     </tr>
   <% end %>
 </table>
+<br>
 <%= form_for [@project, @membership] do |f| %>
-  <%= f.label :user_id, 'Add User' %>
-  <%= f.collection_select(:user_id, @users, :id, :full_name, include_blank: 'Select a user') %>
-  <%= f.submit 'Add as member' %>
+  <div id="membership-form-wrapper">
+  <div class="membership-form"><%= f.label :user_id, 'Add User' %></div>
+  <div class="membership-form"><%= f.collection_select(:user_id, @users, :id, :full_name, include_blank: 'Select a user') %></div>
+  <div class="membership-form"><%= f.submit 'Add as member' %></div>
+  </div>
 <% end %>

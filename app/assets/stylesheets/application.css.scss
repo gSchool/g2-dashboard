@@ -52,3 +52,34 @@ footer {
   background-color: #FFFFFF;
   margin: auto;
 }
+
+.membership-table {
+  margin: auto;
+
+  td, th {
+    border: solid black 2px;
+    padding: .75em;
+    text-align: left;
+  }
+
+  th:nth-child(2) {
+    width: 75%;
+  }
+
+  tr:nth-child(2n + 1) {
+    background-color: lightgray;
+  }
+
+  tr:first-child {
+    background-color: dimgray;
+  }
+}
+
+.membership-form {
+  width: 10%;
+  display: inline;
+  padding: .5em;
+}
+
+#membership-form-wrapper {
+}
