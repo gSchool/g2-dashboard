@@ -35,6 +35,7 @@ feature 'Project functions' do
       new_project
       click_on 'Murder Joffrey'
       expect(page).to have_content 'Murder Joffrey'
+      expect(page).to have_content 'API Key'
       within('table') do
         expect(page).to have_content 'Name'
         expect(page).to have_content 'Email'
