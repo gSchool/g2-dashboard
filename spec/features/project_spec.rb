@@ -63,6 +63,16 @@ feature 'Project functions' do
           expect(page).to have_no_content 'Arya'
         end
       end
+
+      scenario 'User can delete members from a project' do
+        create_user(first_name: 'Harold', email: 'Henderson@Harold.com')
+        new_project
+        click_on 'Murder Joffrey'
+        select 'Harold', from: 'Add User'
+        click_on 'Add as member'
+        click_on 'Delete Harold'
+        expect(page).to_not have_content 'Henderson@Harold.com'
+      end
     end
   end
 end

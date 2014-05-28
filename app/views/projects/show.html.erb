@@ -9,9 +9,9 @@
     <tr>
       <td><%= member.full_name %></td>
       <td><%= member.email %></td>
-      <td></td>
+      <td><a data-method="delete" href="/projects/<%= params[:id] %>/memberships/<%= member.id %>">Delete <%= member.first_name %></a></td>
     </tr>
-  <% end %>
+<% end %>
 </table>
 <br>
 <%= form_for [@project, @membership] do |f| %>
@@ -21,3 +21,4 @@
   <div class="membership-form"><%= f.submit 'Add as member' %></div>
   </div>
 <% end %>
+
