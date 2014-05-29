@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :projects do
     resources :memberships
-  end
+  end  
 
   get '/logout' => 'sessions#destroy', :as => 'logout'
   get '/login' => 'sessions#new', :as => 'login'
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/terms' => 'terms#index', :as => 'terms'
   get '/about' => 'about#index', :as => 'about'
   get '/settings' => 'settings#index', :as => 'settings'
+  get '/projects/:project_id/events' => 'events#show'
 
 
 end

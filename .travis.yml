@@ -18,3 +18,7 @@ deploy:
     - "bundle exec rake db:migrate"
 notifications:
  slack: gschool:DhvIdEOYbWn60FFFu4VZ3wyP
+branches:
+  only:
+    - master
+ 
