@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/about' => 'about#index', :as => 'about'
   get '/settings' => 'settings#index', :as => 'settings'
 
-
-    resources :events, :defaults => { :format => 'json' }
-
+  scope :api do
+    resources :events, :defaults => {:format => 'json'}
+  end
 end
