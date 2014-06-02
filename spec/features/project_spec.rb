@@ -71,7 +71,7 @@ feature 'Project functions' do
         click_on 'Murder Joffrey'
         select 'Harold', from: 'Add User'
         click_on 'Add as member'
-        click_on 'Delete Harold'
+        click_on 'Remove Harold'
         expect(page).to_not have_content 'Henderson@Harold.com'
       end
     end
