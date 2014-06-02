@@ -18,7 +18,6 @@ feature 'Project functions' do
     scenario 'allows a user to create a project and that user is automatically added to created project' do
       new_project
 
-      click_on 'Murder Joffrey'
       within('table') do
         expect(page).to have_content('Arya Stark')
       end
@@ -33,7 +32,6 @@ feature 'Project functions' do
 
     scenario 'Users can view a single project' do
       new_project
-      click_on 'Murder Joffrey'
       expect(page).to have_content 'Murder Joffrey'
       expect(page).to have_content 'API Key'
       within('table') do
@@ -46,7 +44,6 @@ feature 'Project functions' do
       scenario 'Users can add members to a project' do
         create_user(first_name: 'Sansa', email: 'Sansa@example.com')
         new_project
-        click_on 'Murder Joffrey'
         select 'Sansa', from: 'Add User'
         click_on 'Add as member'
         within('table') do
@@ -58,7 +55,6 @@ feature 'Project functions' do
       scenario 'User cannot add duplicate members to a project' do
         create_user(first_name: 'Sansa', email: 'Sansa@example.com')
         new_project
-        click_on 'Murder Joffrey'
         within('form') do
           expect(page).to have_content 'Sansa'
           expect(page).to have_no_content 'Arya'
@@ -68,7 +64,6 @@ feature 'Project functions' do
       scenario 'User can delete members from a project' do
         create_user(first_name: 'Harold', email: 'Henderson@Harold.com')
         new_project
-        click_on 'Murder Joffrey'
         select 'Harold', from: 'Add User'
         click_on 'Add as member'
         click_on 'Remove Harold'
