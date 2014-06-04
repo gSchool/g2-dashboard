@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   get '/settings' => 'settings#index', :as => 'settings'
 
 
+  scope :api do
+    resources :events, :defaults => {:format => 'json'}
+  end
+
 end
