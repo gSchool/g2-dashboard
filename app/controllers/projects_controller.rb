@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     @project.project_api = SecureRandom.uuid
     if @project.save
       Membership.create!(user_id: session[:user_id], project_id: @project.id)
-      redirect_to projects_path
+      redirect_to project_path(@project)
     else
       render new_project_path
     end
