@@ -26,3 +26,17 @@ def create_membership(new_attributes = {})
   attributes = default_attributes.merge(new_attributes)
   Membership.create!(attributes)
 end
+
+def create_event(new_attributes = {})
+  default_attributes = {:event => {
+    "occurred_on" => 89765467,
+    "event_type" => "User Registered",
+    "properties" => {
+      "variation" => "a"
+    },
+    "api_key" => "tyfgvhbjk98y7itufghcvbjkoiu9y8ugvh"
+  }
+  }
+  attributes = default_attributes.merge(new_attributes)
+  Event.create!(attributes)
+end
