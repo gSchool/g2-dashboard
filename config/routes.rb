@@ -6,6 +6,13 @@ Rails.application.routes.draw do
     resources :memberships
   end
 
+  resources :projects do
+    resources :events do
+      get '/:page', :action => :index, :on => :collection
+    end
+
+  end
+
   get '/logout' => 'sessions#destroy', :as => 'logout'
   get '/login' => 'sessions#new', :as => 'login'
   post '/login' => 'sessions#create'
