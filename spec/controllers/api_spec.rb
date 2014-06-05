@@ -5,7 +5,7 @@ describe EventsController do
   it 'returns a status code 200 for successful post requests' do
     project = create_project
     params = {
-      occurred_on: 89765467,
+      occurred_on: 2.days.ago,
       event_type: "User Registered",
       properties: {
         variation: "a"
@@ -18,14 +18,14 @@ describe EventsController do
   end
 
   it 'returns a status code 500 mismatching api_key post requests' do
-    create_project
+    project = create_project
     params = {
-      occurred_on: 89765467,
+      occurred_on: 2.days.ago,
       event_type: "User Registered",
       properties: {
         variation: "a"
       },
-      api_key: "eajkrnafiudhva32kafebdfvn01"
+      api_key: "12345686867238672"
     }
 
     post :create, params, format: :json
