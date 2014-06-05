@@ -1,1 +1,16 @@
-<%= @output %>
+<% @project.events.each do |event| %>
+
+
+
+  <table>
+    <thead>
+    <th>Event</th>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= event.project_id %></td>
+    </tr>
+    </tbody>
+  </table>
+
+<% end %>
