@@ -18,5 +18,11 @@ class EventsController < ApplicationController
     end
   end
 
-end
+  def index
+    project_id = params[:project_id]
+    @project = Project.find_by(:id => project_id)
+    events = @project.events
+    @events = Kaminari.paginate_array(events).page(params[:page]).per(100)
+  end
 
+end
