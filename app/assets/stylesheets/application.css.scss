@@ -89,9 +89,112 @@ footer {
   float: right;
   margin-bottom: -25px
 }
+
 .username {
   margin-top: -30px;
   margin-right: 25px;
   float: right;
 
+}
+
+.all-projects {
+  width: 100%;
+}
+
+#projects {
+  font-weight: bold;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  font-size: 30px;
+  text-align: left;
+}
+
+.container {
+  margin-left: 30px;
+}
+
+.project-title {
+  padding-top: 10px;
+}
+
+#create-projects {
+  font-size: 20px;
+  display: inline-block;
+  font-weight: bold;
+  background-color: steelblue;
+
+  a:link {
+    color: white;
+  }
+  a:visited {
+    color: white;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  a:link {
+    text-decoration: none;
+  }
+  margin-left: 145px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#create-projects:hover {
+  margin-left: 145px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: white;
+  text-color: black;
+  a:visited {
+    color: black;
+  }
+  a:link {
+    color: black;
+  }
+  a:link {
+    text-decoration: none;
+  }
+}
+
+.projects-container {
+  margin-left: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  width: 500px;
+  height: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  a:visited {
+    color: black;
+  }
+  a:link {
+    color: black;
+  }
+  a:link {
+    text-decoration: none;
+  }
+  border: 1px solid rgba(100, 0, 0, .2);
+  margin-bottom: 10px;
+}
+
+.projects-container:hover {
+  font-weight: bold;
+  background-color: steelblue;
+  border: 1px solid rgba(100, 0, 0, .2);
+  a:link {
+    color: white;
+  }
+  a:visited {
+    color: white;
+  }
+  a:hover {
+    text-decoration: none;
+  }
 }
