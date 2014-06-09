@@ -1,19 +1,19 @@
 <div id="projects">My Projects
-  <div id="create-projects">
-    <% if logged_in? %>
+  <% if logged_in? %>
+    <div id="create-projects">
       <a href="/projects/new">Add New Project</a>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
 
 <div class="all-projects">
   <% @projects.each do |project| %>
     <div class="projects-container">
-
-      <div class="project-title">
-        <%= link_to project.project_name, project_path(project) %>
-      </div>
-
+      <a href="<%= project_path(project) %>">
+        <div class="project-title">
+          <%= project.project_name %>
+        </div>
+      </a>
     </div>
   <% end %>
 </div>
