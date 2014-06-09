@@ -12,4 +12,12 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !session[:user_id].nil?
   end
+
+  def member_of?(project)
+    if Membership.where(:project_id => project.id, :user_id => current_user.id)
+      true
+    else
+      false
+    end
+  end
 end

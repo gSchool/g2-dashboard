@@ -4,9 +4,12 @@
   Hello, <%= @user.full_name %>
   <%= button_to 'Sign Out', logout_path, action: :delete, method: "get", class: "submit_button" %>
   <%= link_to 'View Projects', projects_path %> |
+  <%= link_to 'Add Project', new_project_path %> |
 <% else %>
   <%= link_to 'Sign In', login_path %> |
   <%= link_to 'Sign Up', new_user_path %> |
 <% end %>
 <%= link_to 'About', about_path %> |
 <%= link_to 'Settings', settings_path %>
+
+

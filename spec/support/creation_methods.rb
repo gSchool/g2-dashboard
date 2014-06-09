@@ -21,7 +21,7 @@ end
 
 def create_membership(new_attributes = {})
   default_attributes = {
-    :user_id => create_user.id,
+    :user_id => create_user(email: "#{rand(5)}@example.com").id,
     :project_id => create_project.id
   }
   attributes = default_attributes.merge(new_attributes)
@@ -47,3 +47,4 @@ def create_event(attributes = {})
   event.save!
   event
 end
+
