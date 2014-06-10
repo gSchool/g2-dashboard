@@ -1,7 +1,6 @@
 require 'json'
 require 'date'
 
-
 class EventsController < ApplicationController
 
   def create
@@ -10,6 +9,7 @@ class EventsController < ApplicationController
     user_id = params[:user_id]
     properties = params[:properties]
     event_type = params[:event_type]
+
     if project
       Event.create(:occurred_on => occurred_on, :user_id => user_id, :properties => properties, :event_type => event_type, :project_id => project.id)
       render :json => {}

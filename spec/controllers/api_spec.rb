@@ -32,4 +32,6 @@ describe EventsController do
 
     expect(response.status).to eq 500
   end
+
+
 end
