@@ -11,7 +11,7 @@ def create_user(new_attributes = {})
   default_attributes = {
     :first_name => 'Arya',
     :last_name => 'Stark',
-    :email => 'awesomesauce@example.com',
+    :email => "awesomesauce#{rand}@example.com",
     :password => 'yepperz',
     :password_confirmation => 'yepperz'
   }
@@ -47,3 +47,4 @@ def create_event(attributes = {})
   event.save!
   event
 end
+

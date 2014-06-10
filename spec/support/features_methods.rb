@@ -41,4 +41,8 @@ module FeaturesMethods
     fill_in 'Password', :with => user.password
     click_on 'Submit'
   end
+
+  def log_out(user)
+    session.clear
+  end
 end

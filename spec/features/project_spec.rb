@@ -40,6 +40,16 @@ feature 'Project functions' do
       end
     end
 
+    scenario 'User can see a project they are a member of' do
+      user = create_user(:email => 'hihihi@gmail.com')
+      project = create_project(:project_name => 'Project Time')
+      create_membership(:user_id => user.id, :project_id => project.id)
+      visit project_path(project)
+
+      expect(page).to have_content 'Project Time'
+    end
+
+
     feature 'managing project memberships' do
       scenario 'Users can add members to a project' do
         create_user(first_name: 'Sansa', email: 'Sansa@example.com')
