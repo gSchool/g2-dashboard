@@ -11,7 +11,7 @@ def create_user(new_attributes = {})
   default_attributes = {
     :first_name => 'Arya',
     :last_name => 'Stark',
-    :email => 'awesomesauce@example.com',
+    :email => "awesomesauce#{rand}@example.com",
     :password => 'yepperz',
     :password_confirmation => 'yepperz'
   }
@@ -21,7 +21,7 @@ end
 
 def create_membership(new_attributes = {})
   default_attributes = {
-    :user_id => create_user(email: "#{rand(5)}@example.com").id,
+    :user_id => create_user.id,
     :project_id => create_project.id
   }
   attributes = default_attributes.merge(new_attributes)

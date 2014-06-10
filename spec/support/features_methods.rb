@@ -45,9 +45,4 @@ module FeaturesMethods
   def log_out(user)
     session.clear
   end
-
-  def member_of?(project)
-    if Membership.where(:project_id => project.id) && Membership.where(:user_id => session[:user_id])
-    end
-  end
 end
