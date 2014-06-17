@@ -24,10 +24,14 @@ class EventsController < ApplicationController
   end
 
   def index
-    project_id = params[:project_id]
-    @project = Project.find_by(:id => project_id)
-    events = @project.events
-    @events = Kaminari.paginate_array(events).page(params[:page]).per(100)
+    if logged_in?
+      project_id = params[:project_id]
+      @project = Project.find_by(:id => project_id)
+      events = @project.events
+      @events = Kaminari.paginate_array(events).page(params[:page]).per(100)
+    else
+      redirect_to root_path
+    end
   end
 
 end
