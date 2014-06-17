@@ -212,5 +212,24 @@ footer {
   padding: 10px;
   margin: auto;
   border: 1px solid black;
+  width: 90%;
+
+  td, th {
+    border: solid black 2px;
+    padding: .75em;
+    text-align: left;
+  }
+
+  th {
+    background-color: dimgray;
+
+  }
+
+  tr:nth-child(2n + 1) {
+    background-color: lightgray;
+  }
+
+  tr:first-child {
+  }
 
 }

@@ -1,20 +1,22 @@
-<% @events.each do |event| %>
-  <table class="events">
-    <thead>
-    <th>Occurred on</th>
-    <th>User id</th>
-    <th>Type</th>
-    <th>Properties</th>
-    </thead>
-    <tbody>
-    <tr>
-      <td><%= event.occurred_on %></td>
-      <td><%= event.user_id %></td>
-      <td><%= event.event_type %></td>
-      <td><%= event.properties %></td>
-    </tr>
-    </tbody>
-  </table>
-<% end %>
+<table class="events">
+  <thead>
+  <th>Occurred on</th>
+  <th>User id</th>
+  <th>Type</th>
+  <th>Properties</th>
+  </thead>
+  <tbody>
+  <% @events.each do |event| %>
+      <tr>
+        <td><%= event.occurred_on %></td>
+        <td><%= event.user_id %></td>
+        <td><%= event.event_type %></td>
+        <td style="width: 40%;"><% event.properties.each do |properties| %>
+          <%= properties[0]%>: <%= properties[1] %><br>
+          <% end %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
 <%= paginate @events %>
 
