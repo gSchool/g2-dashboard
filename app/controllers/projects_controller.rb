@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   def index
     if logged_in?
       @memberships = Membership.where(user_id: current_user.id)
-      @projects = Project.where(id: @memberships.map(&:project_id ))
+      @projects = Project.where(id: @memberships.map(&:project_id))
     else
       redirect_to root_path
     end
@@ -31,26 +31,21 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @membership = Membership.new
-    applicable_memberships = @project.memberships
-    if applicable_memberships.present? && member_of?(current_user, @project)
+    if member_of?(current_user, @project)
+      @membership = Membership.new
+      applicable_memberships = @project.memberships
       @members = applicable_memberships.map do |membership|
         User.find(membership.user_id)
       end
+      @users = User.all - @members
     else
       redirect_to root_path
-      @members = []
     end
-    @users = User.all - @members
   end
 
   private
 
   def member_of?(user, project)
-  if Membership.where(:project_id => project.id, :user_id => user.id)
-    true
-  else
-    false
+    Membership.where(:project_id => project.id, :user_id => user.id).count > 0
   end
-end
 end

@@ -11,8 +11,8 @@ feature 'Project functions' do
 
   feature 'User functions' do
     before do
-      user = create_user
-      sign_in(user)
+      @user = create_user
+      sign_in(@user)
     end
 
     scenario 'allows a user to create a project and that user is automatically added to created project' do
@@ -40,13 +40,21 @@ feature 'Project functions' do
       end
     end
 
-    scenario 'User can see a project they are a member of' do
-      user = create_user(:email => 'hihihi@gmail.com')
+    scenario 'User see a project they are a member of' do
       project = create_project(:project_name => 'Project Time')
-      create_membership(:user_id => user.id, :project_id => project.id)
+      create_membership(:user_id => @user.id, :project_id => project.id)
       visit project_path(project)
 
       expect(page).to have_content 'Project Time'
+    end
+
+    scenario 'User cannot see a project they are not a member of' do
+      user2 = create_user
+      project = create_project(:project_name => 'Project Time')
+      create_membership(:user_id => user2.id, :project_id => project.id)
+      visit project_path(project)
+
+      expect(page).to have_content 'Welcome to Dashboard'
     end
 
 
