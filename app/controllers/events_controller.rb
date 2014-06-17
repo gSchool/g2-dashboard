@@ -30,7 +30,7 @@ class EventsController < ApplicationController
       events = @project.events
       @events = Kaminari.paginate_array(events).page(params[:page]).per(100)
     else
-      redirect_to root_path
+      redirect_to root_path, locals: flash[:error] = "You must be logged in to view events."
     end
   end
 

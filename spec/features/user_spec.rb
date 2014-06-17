@@ -43,7 +43,6 @@ feature 'User functions' do
     fill_in 'Email', with: user.email
     fill_in 'password', with: 'yepperz'
     click_on 'Submit'
-    expect(page).to have_content("Hello, #{user.full_name}")
     expect(page).to have_content("Login Successful")
   end
 

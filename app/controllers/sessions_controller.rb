@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Login Successful"
-      redirect_to root_url
+      redirect_to projects_path
     else
       flash.now[:error] = "Invalid Email and Password Combination"
       render "new"
