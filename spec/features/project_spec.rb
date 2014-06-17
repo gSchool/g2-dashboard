@@ -54,7 +54,7 @@ feature 'Project functions' do
       create_membership(:user_id => user2.id, :project_id => project.id)
       visit project_path(project)
 
-      expect(page).to have_content 'Welcome to Dashboard'
+      expect(page).to have_content 'You can only view projects you are a member of'
     end
 
 

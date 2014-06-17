@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
       end
       @users = User.all - @members
     else
-      redirect_to root_path
+      redirect_to root_path, locals: flash[:error] = "You can only view projects you are a member of"
     end
   end
 

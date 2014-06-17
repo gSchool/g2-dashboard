@@ -5,7 +5,7 @@ feature 'User functions' do
     first_name = 'Arya'
     last_name = 'Stark'
     register_user(:first_name => first_name, :last_name => last_name)
-    expect(page).to have_content("Hello, #{first_name} #{last_name}")
+    expect(page).to have_content("My Projects")
   end
 
   scenario 'displays an error when user password and password confirmation do not match' do
@@ -17,7 +17,6 @@ feature 'User functions' do
     first_name = 'Arya'
     last_name = 'Stark'
     register_user(:first_name => first_name, :last_name => last_name)
-    expect(page).to have_content("Hello, #{first_name} #{last_name}")
     expect(page).to have_no_link("Sign Up")
   end
 
@@ -25,7 +24,7 @@ feature 'User functions' do
     first_name = 'Arya'
     last_name = 'Stark'
     register_user(:first_name => first_name, :last_name => last_name)
-    click_on 'Sign Out'
+    click_on 'Logout'
     expect(page).to have_no_content("Hello, #{first_name} #{last_name}")
     expect(page).to have_link("Sign Up")
   end
