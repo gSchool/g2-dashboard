@@ -1,10 +1,16 @@
-def create_project(new_attributes = {})
-  default_attributes = {
-    :project_name => 'Murder Joffrey',
-    :project_api => SecureRandom.uuid
+def new_project(attributes = {})
+  defaults = {
+      :project_name => 'Murder Joffrey',
+      :project_api => SecureRandom.uuid
   }
-  attributes = default_attributes.merge(new_attributes)
-  Project.create!(attributes)
+  Project.new(defaults.merge(attributes))
+end
+
+
+def create_project(attributes = {})
+  project = new_project(attributes)
+  project.save!
+  project
 end
 
 def create_user(new_attributes = {})

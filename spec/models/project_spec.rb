@@ -13,9 +13,11 @@ describe Project do
 
     it 'requires a unique project name (case insensitive)' do
       name = 'CoolestProjectEver'
+
       Project.create!(
         :project_name => name,
         :project_api => SecureRandom.uuid)
+
       new_project = Project.new(
         :project_name => name,
         :project_api => SecureRandom.uuid)

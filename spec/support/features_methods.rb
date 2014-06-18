@@ -1,11 +1,11 @@
 module FeaturesMethods
   def register_user(updated_attributes = {})
     default_attributes = {
-      :first_name => 'Arya',
-      :last_name => 'Stark',
-      :email => 'awesomesauce@example.com',
-      :password => 'yepperz',
-      :password_confirmation => 'yepperz'
+        :first_name => 'Arya',
+        :last_name => 'Stark',
+        :email => 'awesomesauce@example.com',
+        :password => 'yepperz',
+        :password_confirmation => 'yepperz'
     }
 
     attributes = default_attributes.merge(updated_attributes)
@@ -19,19 +19,6 @@ module FeaturesMethods
     fill_in 'Password Confirmation', with: attributes[:password_confirmation]
     check 'terms'
     click_on 'Submit'
-  end
-
-  def new_project(new_attributes = {})
-    default_attributes = {
-      :project_name => 'Murder Joffrey'
-    }
-
-    attributes = default_attributes.merge(new_attributes)
-
-    visit '/'
-    click_on 'Add New Project'
-    fill_in 'Name of Project', with: attributes[:project_name]
-    click_on 'Add Project'
   end
 
   def sign_in(user)
