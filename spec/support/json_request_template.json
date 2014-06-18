@@ -1,0 +1,10 @@
+{
+  "occurred_on" : 1401990478,
+  "event_type" : "Event",
+  "user_id" : "user",
+  "properties" : {
+    "OptionalParam" : "OptionalValue",
+    "AnotherParam" : "AnotherValue"
+  },
+  "api_key" : ""
+}

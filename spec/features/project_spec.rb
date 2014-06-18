@@ -87,6 +87,16 @@ feature 'Project functions' do
         click_on 'Remove Harold'
         expect(page).to_not have_content 'Henderson@Harold.com'
       end
+
+      scenario 'User can view project specific documentation from project page' do
+        create_user(first_name: 'Harold', email: 'Henderson@Harold.com')
+        new_project
+        click_on 'Documentation'
+        expect(page).to have_content "Post endpoint: #{current_host}/api/events"
+        # expect(page).to have_content File.read('/Users/MikeMac/gSchoolWork/g2-dashboard/spec/support/json_request_template.json')
+        expect(page).to have_content 'Example cURL: $curl bla bla bla '
+      end
     end
   end
 end
+
