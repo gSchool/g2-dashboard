@@ -24,14 +24,23 @@ class EventsController < ApplicationController
   end
 
   def index
+    @project = Project.find(params[:project_id])
     if logged_in?
-      project_id = params[:project_id]
-      @project = Project.find_by(:id => project_id)
-      events = @project.events
-      @events = Kaminari.paginate_array(events).page(params[:page]).per(100)
+      if member_of?(current_user, @project)
+        events = @project.events
+        @events = Kaminari.paginate_array(events).page(params[:page]).per(100)
+      else
+        redirect_to projects_path, locals: flash[:error] = "You are not a member of that project"
+      end
     else
       redirect_to root_path, locals: flash[:error] = "You must be logged in to view events."
     end
+  end
+
+  private
+
+  def member_of?(user, project)
+    Membership.where(:project_id => project.id, :user_id => user.id).count > 0
   end
 
 end
