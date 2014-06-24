@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/terms' => 'terms#index', :as => 'terms'
   get '/about' => 'about#index', :as => 'about'
   get '/settings' => 'settings#index', :as => 'settings'
-  get '/projects/:id/documentation' => 'projects#documentation'
+  get '/projects/:id/documentation' => 'projects#documentation', as: 'project_documentation'
 
 
   scope :api do

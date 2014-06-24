@@ -29,6 +29,9 @@ class EventsController < ApplicationController
       if member_of?(current_user, @project)
         events = @project.events
         @events = Kaminari.paginate_array(events).page(params[:page]).per(100)
+        if @events == []
+          flash.now[:success] = %Q[You do not have any events for this project yet. Please visit the #{view_context.link_to("documentation page", project_documentation_path(@project))} to learn how to add events.].html_safe
+        end
       else
         redirect_to projects_path, locals: flash[:error] = "You are not a member of that project"
       end
