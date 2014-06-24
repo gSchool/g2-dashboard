@@ -69,7 +69,10 @@ feature 'Project functions' do
 
       scenario 'User can view project specific documentation from project page' do
         create_user(first_name: 'Harold', email: 'Henderson@Harold.com')
-        new_project
+        visit '/'
+        click_on 'Add New Project'
+        fill_in 'Name of Project', with: 'Aryas Project'
+        click_on 'Add Project'
         click_on 'Documentation'
         expect(page).to have_content "Post endpoint: #{current_host}/api/events"
         expect(page).to have_content "cURL: $ curl -X POST -d @json_file.json http://www.example.com/api/events --header \"Content-Type:application/json\""
