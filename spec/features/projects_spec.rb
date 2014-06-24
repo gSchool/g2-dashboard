@@ -66,6 +66,15 @@ feature 'Project functions' do
         click_on 'Remove Sansa'
         expect(page).to_not have_content 'Sansa@example.com'
       end
+
+      scenario 'User can view project specific documentation from project page' do
+        create_user(first_name: 'Harold', email: 'Henderson@Harold.com')
+        new_project
+        click_on 'Documentation'
+        expect(page).to have_content "Post endpoint: #{current_host}/api/events"
+        expect(page).to have_content "cURL: $ curl -X POST -d @json_file.json http://www.example.com/api/events --header \"Content-Type:application/json\""
+      end
     end
   end
 end
+

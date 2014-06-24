@@ -1,0 +1,17 @@
+<h1>API Documentation</h1>
+<h3>Post endpoint: <%= @current_host %>/api/events</h3>
+<p><strong>JSON post should be in this format:</strong></p>
+<pre style="text-align: left; margin-left: 25%; margin-right: 25%">
+  {
+  "occurred_on" : <%= @current_time %>,
+  "event_type" : "Event",
+  "user_id" : "user",
+  "properties" : {
+                  "OptionalParam" : "OptionalValue",
+                  "AnotherParam" : "AnotherValue"
+                 },
+  "api_key" : "<%= @project_api_key %>"
+  }
+</pre>
+<p><strong>Example cURL:</strong></p>
+<pre style="margin-left: 5%; margin-right: 5%">$ curl -X POST -d @json_file.json <%= @current_host %>/api/events --header "Content-Type:application/json"</pre>

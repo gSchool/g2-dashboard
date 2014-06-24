@@ -43,6 +43,12 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def documentation
+    @current_host = "http://#{request.host}"
+    @project_api_key = Project.find(params[:id]).project_api
+    @current_time = Time.now.to_i
+  end
+
   private
 
   def member_of?(user, project)
