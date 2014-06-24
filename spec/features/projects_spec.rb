@@ -74,8 +74,8 @@ feature 'Project functions' do
         fill_in 'Name of Project', with: 'Aryas Project'
         click_on 'Add Project'
         click_on 'Documentation'
-        expect(page).to have_content "Post endpoint: #{current_host}/api/events"
-        expect(page).to have_content "cURL: $ curl -X POST -d @json_file.json http://www.example.com/api/events --header \"Content-Type:application/json\""
+        expect(page).to have_content "Post endpoint: https://www.example.com/api/events"
+        expect(page).to have_content "cURL: $ curl -X POST -d @json_file.json https://www.example.com/api/events --header \"Content-Type:application/json\""
       end
     end
   end

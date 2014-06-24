@@ -44,7 +44,11 @@ class ProjectsController < ApplicationController
   end
 
   def documentation
-    @current_host = "http://#{request.host}"
+    if request.host.include?('localhost')
+      @current_host = "http://#{request.host}:#{request.port}"
+    else
+      @current_host = "https://#{request.host}"
+    end
     @project_api_key = Project.find(params[:id]).project_api
     @current_time = Time.now.to_i
   end
