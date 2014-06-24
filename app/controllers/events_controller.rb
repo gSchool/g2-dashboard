@@ -27,7 +27,7 @@ class EventsController < ApplicationController
     @project = Project.find(params[:project_id])
     if logged_in?
       if member_of?(current_user, @project)
-        events = @project.events
+        events = @project.events.order(occurred_on: :desc)
         @events = Kaminari.paginate_array(events).page(params[:page]).per(100)
         if @events == []
           flash.now[:success] = %Q[You do not have any events for this project yet. Please visit the #{view_context.link_to("documentation page", project_documentation_path(@project))} to learn how to add events.].html_safe

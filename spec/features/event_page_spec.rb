@@ -32,4 +32,18 @@ feature 'User can view events' do
     visit project_events_path(@project.id)
     expect(page).to have_content "You do not have any events for this project yet. Please visit the documentation page to learn how to add events."
   end
+
+  scenario 'events list should be ordered by "occurred on", descending (latest first)' do
+    Event.create!(:project_id => @project.id, :occurred_on => 2.hours.ago, :user_id => @user.id, :event_type => "3 User Registered", :properties => {:variation => "a", :hello => "b"})
+    Event.create!(:project_id => @project.id, :occurred_on => 15.minutes.ago, :user_id => @user.id, :event_type => "1 User Registered", :properties => {:variation => "a", :hello => "b"})
+    Event.create!(:project_id => @project.id, :occurred_on => 1.hour.ago, :user_id => @user.id, :event_type => "2 User Registered", :properties => {:variation => "a", :hello => "b"})
+    visit project_events_path(@project.id)
+
+    within 'table tr:nth-child(1)' do
+      expect(page).to have_content "1 User Registered"
+    end
+    within 'table tr:nth-child(3)' do
+      expect(page).to have_content "3 User Registered"
+    end
+  end
 end
