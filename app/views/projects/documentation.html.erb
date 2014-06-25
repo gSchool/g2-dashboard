@@ -13,5 +13,7 @@
   "api_key" : "<%= @project_api_key %>"
   }
 </pre>
+<p style="background-color: lightgrey; text-align: center; margin-left: 25%; margin-right: 25%; padding-top: 1em; margin-top: -1em"><strong>Make sure to include "Content-Type: application/json" in the post header</strong></p>
+<br>
 <p><strong>Example cURL:</strong></p>
 <pre style="margin-left: 5%; margin-right: 5%">$ curl -X POST -d @json_file.json <%= @current_host %>/api/events --header "Content-Type:application/json"</pre>
