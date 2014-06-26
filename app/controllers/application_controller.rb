@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
 
 
-  helper_method :logged_in?, :current_user, :validate_logged_in
+  helper_method :logged_in?, :current_user, :validate_logged_in, :member_of?, :validate_membership
 
 
   def current_user

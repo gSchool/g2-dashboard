@@ -44,7 +44,7 @@ feature 'Project functions' do
       create_membership(:user_id => user2.id, :project_id => project.id)
       visit project_path(project)
 
-      expect(page).to have_content 'You can only view projects you are a member of'
+      expect(page).to have_content 'You are not a member of that project'
     end
 
     scenario 'User cannot see documentation they are not a member of' do
@@ -53,7 +53,7 @@ feature 'Project functions' do
       create_membership(:user_id => user2.id, :project_id => project.id)
       visit project_documentation_path(project)
 
-      expect(page).to have_content 'You can only view projects you are a member of'
+      expect(page).to have_content 'You are not a member of that project'
     end
 
     feature 'managing project memberships' do

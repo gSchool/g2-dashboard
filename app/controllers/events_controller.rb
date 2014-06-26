@@ -2,6 +2,7 @@ require 'json'
 require 'date'
 
 class EventsController < ApplicationController
+  include MembershipHelpers
 
   def create
     project = Project.find_by(:project_api => params[:api_key])
@@ -24,26 +25,14 @@ class EventsController < ApplicationController
   end
 
   def index
+    validate_logged_in
     @project = Project.find(params[:project_id])
-    if logged_in?
-      if member_of?(current_user, @project)
-        events = @project.events.order(occurred_on: :desc)
-        @events = Kaminari.paginate_array(events).page(params[:page]).per(100)
-        if @events == []
-          flash.now[:success] = %Q[You do not have any events for this project yet. Please visit the #{view_context.link_to("documentation page", project_documentation_path(@project))} to learn how to add events.].html_safe
-        end
-      else
-        redirect_to projects_path, locals: flash[:error] = "You are not a member of that project"
-      end
-    else
-      redirect_to root_path, locals: flash[:error] = "You must be logged in to view events."
+    validate_membership(current_user, @project)
+    events = @project.events.order(occurred_on: :desc)
+    @events = Kaminari.paginate_array(events).page(params[:page]).per(100)
+    if @events == []
+      flash.now[:success] = %Q[You do not have any events for this project yet. Please visit the #{view_context.link_to("documentation page", project_documentation_path(@project))} to learn how to add events.].html_safe
     end
-  end
-
-  private
-
-  def member_of?(user, project)
-    Membership.where(:project_id => project.id, :user_id => user.id).count > 0
   end
 
 end

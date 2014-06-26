@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  include MembershipHelpers
 
   before_action :validate_logged_in
 
@@ -47,13 +48,4 @@ class ProjectsController < ApplicationController
     @current_time = Time.now.to_i
   end
 
-  private
-
-  def member_of?(user, project)
-    Membership.where(:project_id => project.id, :user_id => user.id).count > 0
-  end
-
-  def validate_membership(user, project)
-    redirect_to root_path, locals: flash[:error] = "You can only view projects you are a member of" if !member_of?(user, project)
-  end
 end
