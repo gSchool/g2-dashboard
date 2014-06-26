@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
 
 
-  helper_method :logged_in?, :current_user
+  helper_method :logged_in?, :current_user, :validate_logged_in
 
 
   def current_user
@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !session[:user_id].nil?
   end
+
+  def validate_logged_in
+    redirect_to root_path if !logged_in?
+  end
+
 end

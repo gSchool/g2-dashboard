@@ -47,6 +47,15 @@ feature 'Project functions' do
       expect(page).to have_content 'You can only view projects you are a member of'
     end
 
+    scenario 'User cannot see documentation they are not a member of' do
+      user2 = create_user
+      project = create_project(:project_name => 'Project Time')
+      create_membership(:user_id => user2.id, :project_id => project.id)
+      visit project_documentation_path(project)
+
+      expect(page).to have_content 'You can only view projects you are a member of'
+    end
+
     feature 'managing project memberships' do
       scenario 'Users can add and remove members from a project' do
         create_user(first_name: 'Sansa', email: 'Sansa@example.com')
