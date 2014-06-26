@@ -4,8 +4,7 @@ class ProjectsController < ApplicationController
   before_action :validate_logged_in
 
   def index
-    @memberships = Membership.where(user_id: current_user.id)
-    @projects = Project.where(id: @memberships.map(&:project_id))
+    @projects = Project.joins(:memberships).where("memberships.user_id" => current_user.id)
   end
 
   def new
